@@ -1,0 +1,27 @@
+Model:
+	structures += CStruct
+;
+
+CStruct:
+	'struct'
+		structName = ID
+	'{'
+		variables += VariableDec
+	'}' ';'
+;
+
+VariableDec:
+		varType = VarType
+		varName=ID
+		pointers *= ImAPointer
+	';'
+;
+
+VarType:
+	'int' | 'bool' | 'char' | 'double' | 'float' | 'short' | 'long'
+;
+
+ImAPointer:
+	( '[' staticLength=INT ']')
+	| '*'
+;
